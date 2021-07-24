@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import java.io.UnsupportedEncodingException;
 import java.time.Instant;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class TokenService {
@@ -23,6 +25,8 @@ public class TokenService {
         Date expiration = new Date( Instant.now().toEpochMilli() + 1000 * 60 * expireTime );
 
         Claims claims = Jwts.claims().setSubject( user.getId() );
+
+        Map<String, Integer> map = new HashMap<>();
 
         return Jwts.builder()
                 .setHeaderParam( "type", "JWT" )

@@ -55,6 +55,7 @@ public class UserService {
         try {
             token = tokenService.createToken( user );
         } catch ( Exception e ) {
+            System.out.println();
             logger.error( "create token - user: {}, error: {}", user, e.getMessage() );
             return RestResponse.fail( HttpStatus.INTERNAL_SERVER_ERROR, e.getCause().getMessage() );
         }

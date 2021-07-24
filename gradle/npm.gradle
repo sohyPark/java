@@ -1,0 +1,16 @@
+
+task npm {
+    doFirst {
+        def commandList = ['npm install -g @vue/cli', 'npm install', 'npm run build']
+
+        commandList.each() {
+            def command = it
+            exec { 
+                    workingDir './frontend'
+             	    println( "commandLine > ${ command }" ) 
+                    commandLine 'cmd', '/c', command 
+            }
+
+        }
+    }
+}
