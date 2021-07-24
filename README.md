@@ -10,4 +10,4 @@
 - Java 1.8
 - JPA
 - JWT
-
+- Spring Security 5.4.1
